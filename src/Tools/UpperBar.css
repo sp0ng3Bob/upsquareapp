@@ -1,0 +1,20 @@
+.UpperBar {
+    margin-bottom: 10px;
+    width: inherit;
+    
+}
+
+#home {
+    font-size: 10px;
+    float: left;
+    cursor: pointer;
+    
+}
+
+#search {
+    width: 11px;
+    height: 11px;
+    float: right;
+    cursor: pointer;
+    
+}

@@ -1,0 +1,25 @@
+.App {
+  /*display: block;*/
+  position: absolute;
+
+  margin: inherit;  
+  /*top: inherit;*/
+  /*left: inherit;*/
+  /*right: inherit;*/
+  /*bottom: inherit;*/
+  
+  /*z-index: 100000;*/
+  
+  /*width: 31.8vw;*/
+  
+  width: inherit;
+  height: inherit;
+  
+  max-width: inherit;
+  max-height: inherit;
+  
+  text-overflow: clip;
+  
+  overflow: hidden;
+    
+}
