@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './Popular.css';
 
+import $ from 'jquery';
+
+
 class popular extends Component {
   constructor(props) {
     super(props);
@@ -47,12 +50,10 @@ class popular extends Component {
     var pictureSize = (sizes.width < sizes.height) ? sizes.width : sizes.height;
     
     const renderTitle = (listValue) => {
-      if (listValue.length < 20) return <h3>{listValue.toUpperCase()}</h3>;
+      if (listValue.length < 18) return <h3>{listValue.toUpperCase()}</h3>;
       
       var spaceIndex = listValue.indexOf(" ");              
-      while(listValue.indexOf(" ", spaceIndex+1) < 20) {spaceIndex = listValue.indexOf(" ", spaceIndex+1);}
-      console.log(listValue);
-      console.log(spaceIndex);
+      while(listValue.indexOf(" ", spaceIndex+1) < 18) {spaceIndex = listValue.indexOf(" ", spaceIndex+1);}
 
       return <h3>{listValue.substring(0, spaceIndex).toUpperCase() + "..."}</h3>;
       
@@ -70,13 +71,21 @@ class popular extends Component {
       }
     };
     
+    //Scroll
+    $(document).ready(function() {
+      $('.Popular').on('mousewheel DOMMouseScroll', function(event) {
+        this.scrollLeft += (event.originalEvent.wheelDelta);
+        event.preventDefault();
+      });
+    });
+    
     return ( 
       <div className="Popular">
         <h2>Popular</h2>
         {this.state.data.map(function(listValue){
           return (
             <div key={index++} className="SlideShow">
-              <img src={listValue[0]} alt="...SLIKA POPULAR..." width={pictureSize/2.5} height={pictureSize/2.5}></img>
+              <img src={listValue[0]} alt="...SLIKA..." width={pictureSize/3} height={pictureSize/3}></img>
               {renderTitle(listValue[1])}
               {getMinutesFromDate(listValue[3])}
             </div>

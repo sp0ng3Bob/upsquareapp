@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Recommended.css';
 
-//var $ = require('jquery');
+import $ from 'jquery';
+
 
 class recommended extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class recommended extends Component {
     window.fetch('https://api.upsquare.io/v1/posts/?type=recommended', auth)
       .then(res => res.json())
       .then(resJson => {
+        
         let OUTPUT = [];
         var index = 0;
         resJson.forEach((post) => {
@@ -48,15 +50,12 @@ class recommended extends Component {
     var pictureSize = (sizes.width < sizes.height) ? sizes.width : sizes.height;
     
     const renderTitle = (listValue) => {
-      if (listValue.length < 20) return <h3>{listValue.toUpperCase()}</h3>;
+      if (listValue.length < 18) return <h3>{listValue.toUpperCase()}</h3>;
       
       var spaceIndex = listValue.indexOf(" ");              
-      while(listValue.indexOf(" ", spaceIndex+1) < 20) {spaceIndex = listValue.indexOf(" ", spaceIndex+1);}
-      console.log(listValue);
-      console.log(spaceIndex);
+      while(listValue.indexOf(" ", spaceIndex+1) < 18) {spaceIndex = listValue.indexOf(" ", spaceIndex+1);}
       
       return <h3>{listValue.substring(0, spaceIndex).toUpperCase() + "..."}</h3>;
-      //{(listValue[1].length < 16) ? <h3>{listValue[1].toUpperCase()}</h3> : <h3>{listValue[1].substring(0, 16).toUpperCase() + "..."}</h3>}
     };
     
     const getMinutesFromDate = (date) => {
@@ -71,13 +70,13 @@ class recommended extends Component {
       }
     };
     
-    //TO-DO: add mouse scroll to Recommended and Popular divs
-    // $(document).ready(function() {
-    //   $('.Recommended').on('mousewheel DOMMouseScroll', function(event, delta) {
-    //     this.scrollLeft -= (delta * 30);
-    //     event.preventDefault();
-    //   });
-    // });
+    //Scroll
+    $(document).ready(function() {
+      $('.Recommended').on('mousewheel DOMMouseScroll', function(event) {
+        this.scrollLeft += (event.originalEvent.wheelDelta);
+        event.preventDefault();
+      });
+    });
     
      return ( 
       <div className="Recommended">
@@ -85,7 +84,7 @@ class recommended extends Component {
         {this.state.data.map(function(listValue){
           return (
             <div key={index++} className="SlideShow">
-              <img src={listValue[0]} alt="...SLIKA RECOMMENDED..." width={pictureSize/2.5} height={pictureSize/2.5}></img>
+              <img src={listValue[0]} alt="...SLIKA..." width={pictureSize/3} height={pictureSize/3}></img>
               {renderTitle(listValue[1])}
               {getMinutesFromDate(listValue[3])}
             </div>

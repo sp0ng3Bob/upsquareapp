@@ -1,6 +1,6 @@
 .Promoted {
     position: relative;
-    margin-top: 25px;
+    margin-top: 20px;
     
 }
 
@@ -12,7 +12,7 @@ img {
 
 .Promoted h3 {
     font-size: 10px;
-    margin-top: 6px;
+    margin-top: 3px;
     margin-bottom: 0px;
     margin-left: 1px;
 }
@@ -42,5 +42,5 @@ h4 {
 
 .second {
     float: right;
-    margin-right: 25px;
+    margin-right: 1px;
 }

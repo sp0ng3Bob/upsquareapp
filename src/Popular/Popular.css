@@ -1,6 +1,3 @@
-/*::-webkit-scrollbar{width:2px;height:2px;}*/
-/*::-webkit-scrollbar-button{width:2px;height:2px;}*/
-
 .Popular {
     position: relative;
     /*float: left;*/
@@ -11,7 +8,7 @@
     
     width: inherit;
     
-    margin-top: 0px;
+    margin-top: -15px;
     left: 0px;
     
 }
@@ -28,10 +25,11 @@
 }
 
 .Popular img {
+    display: block;
     object-fit: cover;
     cursor: pointer;
     border-radius: 6px;
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 h2 {
@@ -43,7 +41,7 @@ h2 {
 
 .Popular h3 {
     font-size: 9px;
-    margin-top: 0px;
+    margin-top: 3px;
     margin-left: 1px;
     margin-bottom: 0px;
 }
